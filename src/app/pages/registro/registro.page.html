@@ -1,0 +1,51 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@700&display=swap" rel="stylesheet">
+
+<ion-header>
+  <ion-toolbar class="header" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button class="botones" text="Atrás">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-family: 'Baloo Tamma 2', cursive; font-size: x-large;">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <body class="body">
+    <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+      <ion-item>
+        <ion-label>Subir Archivo</ion-label>
+        <ion-input accept="image/*" type="file" name="file" [(ngModel)]="usuario.file"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" name="user" [(ngModel)]="usuario.user"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre Completo</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="usuario.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="usuario.email"
+          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="usuario.password" required>
+        </ion-input>
+      </ion-item><br>
+      <p style="text-align: center;">Al hacer click en Registrarse, aceptara nuestros terminos y condiciones.</p>
+      <br>
+      <ion-button [disabled]="formulario.invalid" type="submit" expand="block" routerLink="/inicio">
+        Registrarse
+      </ion-button>
+    </form>
+  </body>
+
+
+</ion-content>
